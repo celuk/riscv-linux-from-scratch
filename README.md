@@ -23,7 +23,7 @@ Every submodule has its own `compile.sh` with the exact commands. The toolchain 
 | Submodule | Version | Description |
 | --- | --- | --- |
 | [riscv-opensbi-port](https://github.com/celuk/riscv-opensbi-port) | OpenSBI v1.7 | [`platform/template`](riscv-opensbi-port/platform/template) port for the SoC, custom UART driver for the SBI console, [`custom.dts`](riscv-opensbi-port/platform/template/custom.dts) device tree |
-| [riscv-linux-port](https://github.com/celuk/riscv-linux-port) | Linux v6.15 | RV32 config [`arch/riscv/configs/32-bit.config`](riscv-linux-port/arch/riscv/configs/32-bit.config) for the SoC |
+| [riscv-linux-ue](https://github.com/celuk/riscv-linux-ue) | Linux v4.20 | RV32 config [`arch/riscv/configs/32-bit.config`](riscv-linux-ue/arch/riscv/configs/32-bit.config) for the SoC |
 | [riscv-busybox-port](https://github.com/celuk/riscv-busybox-port) | BusyBox 1.36.1 | static build config and the init [`script`](riscv-busybox-port/compile.sh) that builds the initramfs that provides basic linux tools e.g. bash console |
 
 ## Compilation
@@ -53,7 +53,7 @@ cd riscv-busybox-port
 
 cd ..
 
-cd ../riscv-linux-port
+cd ../riscv-linux-ue
 
 ./compile.sh
 
@@ -69,7 +69,7 @@ riscv-opensbi-port/platform/template/custom.dtb.hex
 ```
 
 ```bash
-riscv-linux-port/arch/riscv/boot/Image.hex
+riscv-linux-ue/arch/riscv/boot/Image.hex
 ```
 
 ```bash
@@ -133,4 +133,4 @@ __asm__ volatile (
 
 Note that `next_mode` is `1` (S mode), not `3`. If you set it to M mode the kernel starts with the wrong privilege level and traps as soon as it touches an S mode CSR.
 
-If your SoC instead has a bootloader that only jumps to a fixed address, build with `FW_JUMP=y FW_JUMP_ADDR=0x80400000 FW_JUMP_FDT_ADDR=0x81400000`, or use `FW_PAYLOAD=y FW_PAYLOAD_OFFSET=0x00400000 FW_PAYLOAD_PATH=../riscv-linux-port/arch/riscv/boot/Image` to get a single blob.
+If your SoC instead has a bootloader that only jumps to a fixed address, build with `FW_JUMP=y FW_JUMP_ADDR=0x80400000 FW_JUMP_FDT_ADDR=0x81400000`, or use `FW_PAYLOAD=y FW_PAYLOAD_OFFSET=0x00400000 FW_PAYLOAD_PATH=../riscv-linux-ue/arch/riscv/boot/Image` to get a single blob.
