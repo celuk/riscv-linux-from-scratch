@@ -78,7 +78,13 @@ riscv-opensbi-port/build/platform/template/firmware/fw_dynamic.hex
 
 --> You can program these hex codes seperately to their addresses that is defined in SoC bootrom as it is done in [`Makefile`](https://github.com/celuk/secure-soc/tree/main/Makefile) `program_linux` make command to run on a soft-core SoC running on an FPGA.
 
+![programming_linux.png](https://github.com/celuk/secure-soc/blob/main/figures/programming_linux.png?raw=true)
+
+![linux_boot.gif](https://github.com/celuk/secure-soc/blob/main/figures/linux_boot.gif?raw=true)
+
 ## Boot Process
+
+![boot_process.png](https://github.com/celuk/secure-soc/blob/main/figures/boot_process.png?raw=true)
 
 A zero stage bootloader in the SoC bootrom runs in M mode, hands control to OpenSBI in DRAM, OpenSBI does the M mode setup and drops to S mode at the linux entry point. The kernel takes the device tree pointer it was given, unpacks the initramfs that is linked into its own image and runs BusyBox `/init` in U mode. No second stage bootloader and no block device are involved.
 
