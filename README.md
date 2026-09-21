@@ -14,7 +14,15 @@ export CROSS_COMPILE=<your-toolchain-path>/bin/riscv32-unknown-linux-gnu-
 
 A 64-bit distro toolchain also works for OpenSBI if you pass `PLATFORM_RISCV_XLEN=32`, but the kernel and BusyBox want the rv32 one.
 
-Also needed: `dtc` for the device tree, `python3` with `pyserial` for programming over UART, and the scripts in [secure-soc/tools](https://github.com/celuk/secure-soc/tree/main/tools) ([`bin2hex.py`](https://github.com/celuk/secure-soc/tree/main/tools/bin2hex.py), [`uart_send_data_to_dram.py`](https://github.com/celuk/secure-soc/tree/main/tools/uart_send_data_to_dram.py), [`vmem_to_ddr3_init.py`](https://github.com/celuk/secure-soc/tree/main/tools/vmem_to_ddr3_init.py)).
+Also needed: `dtc` for the device tree, `python3` with `pyserial` for programming over UART:
+
+```bash
+sudo apt install device-tree-compiler
+sudo apt install python3 python3-pip
+pip3 install pyserial
+```
+
+and the scripts in [secure-soc/tools](https://github.com/celuk/secure-soc/tree/main/tools) ([`bin2hex.py`](https://github.com/celuk/secure-soc/tree/main/tools/bin2hex.py), [`uart_send_data_to_dram.py`](https://github.com/celuk/secure-soc/tree/main/tools/uart_send_data_to_dram.py), [`vmem_to_ddr3_init.py`](https://github.com/celuk/secure-soc/tree/main/tools/vmem_to_ddr3_init.py)).
 
 Every submodule has its own `compile.sh` with the exact commands. The toolchain and tool paths in those scripts are absolute local paths, so fix them for your machine before running them.
 
