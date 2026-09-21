@@ -1,0 +1,9 @@
+[submodule "riscv-busybox-port"]
+	path = riscv-busybox-port
+	url = https://github.com/celuk/riscv-busybox-port
+[submodule "riscv-linux-port"]
+	path = riscv-linux-port
+	url = https://github.com/celuk/riscv-linux-port
+[submodule "riscv-opensbi-port"]
+	path = riscv-opensbi-port
+	url = https://github.com/celuk/riscv-opensbi-port
