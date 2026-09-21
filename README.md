@@ -127,7 +127,6 @@ __asm__ volatile (
     "mv a2, %[info_addr]\n" // &dynamic_info
     "li t0, %[entry]\n" // 0x80000000, OpenSBI
     "jalr x0, t0, 0\n"
-    ...
 );
 ```
 
