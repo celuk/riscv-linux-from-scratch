@@ -2,7 +2,7 @@
 
 A minimal RV32IMAC linux system built from source for a custom RISC-V SoC: [OpenSBI](https://github.com/riscv-software-src/opensbi) as the M mode firmware, a 32-bit [linux kernel](https://github.com/torvalds/linux) and a [BusyBox](https://github.com/mirror/busybox) based initramfs embedded into the kernel image. Everything is compiled as bare images (no U-Boot, no disk, no root filesystem on external media (e.g. SD Card)) and loaded straight into memory, so it also works on a small FPGA or simulated SoC that has nothing but a UART, a timer and some DRAM.
 
-It is used with [secure-soc](https://github.com/celuk/secure-soc), which is a CVA6 based SoC with secure boot and on-the-fly memory encryption-decryption. The old and messier version of this work is in [riscv-linux-boot](https://github.com/celuk/riscv-linux-boot).
+It is used with [secure-soc](https://github.com/celuk/secure-soc), which is a CVA6 based SoC with secure boot and on-the-fly memory encryption-decryption. The old and messier version of this work is in [riscv-linux-boot](https://github.com/celuk/riscv-linux-boot). For a better linux port from scratch you can check [falcon-linux](https://github.com/gdrlab/falcon-linux).
 
 ## Requirements
 
